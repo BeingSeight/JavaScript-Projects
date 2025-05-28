@@ -270,5 +270,5 @@ Ans: Yes! In JavaScript, functions can be stored in variables like any other val
    
 Ans: Function declarations (`function name(){}`) are available throughout their scope, while expressions (`const name = function(){}`) only exist after they're defined.
 
-## This Repo and this Short Revision is of my college curriculum, Instructor Poonam Khanvilkar.
+## This Repo and this Short Revision is of my college curriculum, Instructor: Poonam Khanvilkar.
 ## If you find it helpful in polishing your JavaScript concepts, consider starring this Repository!

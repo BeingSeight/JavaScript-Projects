@@ -1,4 +1,4 @@
-# JavaScript MCQs: Answers
+# JavaScript MCQs & Answers
 # Revise Core JavaScript Concepts Simply with It!
 
 

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG Color Changer</title>
+    
+    <style>
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.5s ease;
+            background-color: #f0f0f0;
+        }
+        
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        
+        .color-btn {
+            padding: 12px 28px;
+            font-size: 16px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .color-btn:hover {
+            background-color: #357abD;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        
+        .color-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        
+        .color-display {
+            font-size: 22px;
+            font-weight: 500;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            min-width: 120px;
+            text-align: center;
+        }
+        
+        
+        footer {
+            position: fixed;
+            bottom: 10px;
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Background Color Changer</h1>
+    
+    <button class="color-btn" id="colorButton">Change Color!</button>
+    <div class="color-display" id="colorCode">#F0F0F0</div>
+    
+    <footer>Sahil Shah - College Java Assignment</footer>
+
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const colorBtn = document.getElementById('colorButton');
+            const colorDisplay = document.getElementById('colorCode');
+            
+            
+            colorBtn.addEventListener('click', makeNewColor);
+            
+            
+            function makeNewColor() {
+                
+                const r = Math.floor(Math.random() * 256);
+                const g = Math.floor(Math.random() * 256);
+                const b = Math.floor(Math.random() * 256);
+                
+                
+                const rHex = r.toString(16).padStart(2, '0');
+                const gHex = g.toString(16).padStart(2, '0');
+                const bHex = b.toString(16).padStart(2, '0');
+                
+                
+                const newColor = `#${rHex}${gHex}${bHex}`;
+                
+                
+                document.body.style.backgroundColor = newColor;
+                
+                
+                colorDisplay.textContent = newColor.toUpperCase();
+                
+                
+                const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+                colorDisplay.style.color = brightness > 128 ? '#000' : '#fff';
+            }
+            
+            
+            makeNewColor();
+        });
+    </script>
+</body>
+</html>
